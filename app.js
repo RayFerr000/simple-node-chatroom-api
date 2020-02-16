@@ -8,11 +8,10 @@ const port = parseInt(process.env.PORT, 10) || 5000;
 // Log requests to the console.
 app.use(logger('dev'));
 
-// Parse incoming requests data (https://github.com/expressjs/body-parser)
+// Parse incoming requests data 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-console.log('DOES THIS  FIRE');
-console.log(process.env.DATABASE_URL);
+
 const { Pool } = require('pg');
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
