@@ -6,4 +6,5 @@ module.exports = (app) => {
   }));
 
   app.post('/api/messages', messagesController.create);
+  app.get('/api/messages', messagesController.list);
 }
