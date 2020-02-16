@@ -19,7 +19,11 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
       allowNull: false,
     },
-    updatedAt: false,
+    updatedAt: {
+      type: 'TIMESTAMP',
+      defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
+      allowNull: false,
+    },
   }, {});
   Message.associate = function(models) {
     // associations can be defined here
