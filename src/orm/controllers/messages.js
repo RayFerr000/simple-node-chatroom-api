@@ -1,19 +1,19 @@
-import Message from '../models'
+import { Message } from '../models'
 
 module.exports = {
-  create(req, res) {
+  create(ctx) {
     return Message
       .create({
-        email: req.body.email,
-        message: req.body.message
+        email: ctx.request.body.email,
+        message: ctx.request.body.message
       })
       .then(message => { return message })
-      .catch(error => res.status(400).send(error))
+      .catch(error => { return error })
   },
-  list(req, res) {
+  list() {
     return Message
       .findAll()
-      .then(messages => res.status(200).send(messages))
-      .catch(error => res.status(400).send(error))
+      .then(messages => { return messages })
+      .catch(error => { return error })
   }
 }
